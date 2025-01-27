@@ -1,0 +1,32 @@
+<head>
+    <script type="text/javascript">
+        let OriWidth = null;
+        let Oriheight = null;
+
+        function Calculate() {
+            let Tri = document.getElementById("Tri");
+            let Base = document.getElementById('B').value;
+            let Height = document.getElementById('H').value;
+            let Val = (0.5 * Base * Height).toString();
+            let AOT = document.getElementById('AOT');
+            AOT.innerHTML = Val;
+            Tri.style.height = (parseInt(Oriheight) * Height) + 'px';
+            Tri.style.width = (parseInt(OriWidth) * Base) + 'px';
+        }
+
+        document.write('<input placeholder="Base" id="B">');
+        document.write('<input placeholder="Height" id="H">');
+        document.write('<button onclick="Calculate()">Calculate</button>');
+        document.write('<h3>Area of a Triangle: <span id="AOT"></span></h3>');
+        document.write('<img src="https://cdn1.byjus.com/wp-content/uploads/2020/10/Properties-of-Triangle.png" id="Tri" />');
+
+        function OnLoad() {
+            let Tri = document.getElementById("Tri");
+            Oriheight = window.getComputedStyle(Tri).height;
+            OriWidth = window.getComputedStyle(Tri).width;
+        }
+    </script>
+</head>
+
+<body onload="OnLoad()">
+</body>
